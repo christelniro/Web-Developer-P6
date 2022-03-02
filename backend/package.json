@@ -12,7 +12,8 @@
     "express": "^4.17.2",
     "mongoose": "^6.2.0",
     "mongose": "^0.0.2-security",
-    "password-validator": "^5.2.1"
+    "password-validator": "^5.2.1",
+    "token": "^0.1.0"
   },
   "devDependencies": {
     "nodemon": "^2.0.15"
