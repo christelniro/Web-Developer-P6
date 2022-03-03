@@ -8,6 +8,13 @@ const User = require('./models/user');
 // Création d'une application express
 const app = express();
 
+
+// enregistrons notre routeur dans notre application. Pour ce faire, importez le routeur 
+const userRoutes = require('./Routes/user');
+
+
+
+
 // Connection à la base de données MongoDB avec la sécurité vers le fichier .env pour cacher le mot de passe
 // L'un des avantages que nous avons à utiliser Mongoose pour gérer notre base de données MongoDB est que nous pouvons implémenter des schémas de données stricts
 // qui permettent de rendre notre application plus robuste
@@ -49,8 +56,8 @@ app.use('/api/auth', User);
 // Va servir les routes dédiées aux sauces
 app.use('/api/sauces', Sauce)
 
-
-
+//va servir les route lier utilisateur
+app.use('/api/auth', userRoutes);
 
 
 
