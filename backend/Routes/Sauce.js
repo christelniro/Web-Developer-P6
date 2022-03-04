@@ -4,7 +4,7 @@ const router = express.Router();
 
 
 const auth = require('../middleware/auth');
-
+const saucesCtrl = require('../controllers/user')
 
 //Create and modify sauces
 router.get('/', auth, saucesCtrl.getAllSauces);
