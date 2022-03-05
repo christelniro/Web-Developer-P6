@@ -1,4 +1,4 @@
-const User = require('../models/user');
+
 // la fonction de hachage de bcrypt dans notre mot de passe et lui demandons de « saler » le mot de passe 10 fois.
 const bcrypt = require('bcrypt');
 const user = require('../models/user');

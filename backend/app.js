@@ -2,9 +2,7 @@
 const express = require('express');
 // On importe mongoose pour pouvoir utiliser la base de données
 const mongoose = require('mongoose');// Plugin Mongoose pour se connecter à la data base Mongo Db
-//importation du models
-const Sauce = require('./models/sauce');
-const User = require('./models/user');
+
 // Création d'une application express
 const app = express();
 
@@ -13,6 +11,7 @@ const path = require('path');
 
 // enregistrons notre routeur dans notre application. Pour ce faire, importez le routeur 
 const userRoutes = require('./Routes/user');
+const sauceRoute = require('./Routes/Sauce');
 
 
 
@@ -48,12 +47,13 @@ app.use((req, res, next) => {
 
 app.use(express.json());
 
+// Enregistrement des routeurs
 
 
 // Va servir les routes dédiées aux utilisateur
-app.use('/api/auth', User);
+app.use('/api/auth', userRoutes);
 // Va servir les routes dédiées aux sauces
-app.use('/api/sauces', Sauce)
+app.use('/api/sauces', sauceRoute);
 
 //va servir les route lier utilisateur
 app.use('/api/auth', userRoutes);
