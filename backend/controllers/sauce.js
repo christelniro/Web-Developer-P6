@@ -8,6 +8,7 @@ exports.getAllSauces = (req, res, next) => {
 };
 
 // Lecture d'une sauce avec son ID (Get/:id)
+
 exports.getOneSauce = (req, res, next) => {
     Sauce.findOne({ _id: req.params.id })
         .then(sauce => res.status(200).json(sauce))
@@ -15,6 +16,7 @@ exports.getOneSauce = (req, res, next) => {
 };
 
 // Modification d'une sauce (Update)
+
 exports.modifySauce = (req, res, next) => {
     const sauceObject = req.file ?
         // Si il existe déjà une image
@@ -62,6 +64,7 @@ exports.deleteSauce = (req, res, next) => {
 // Création like ou dislike (Post/:id/like)
 exports.likeOrDislike = (req, res, next) => {
     // Si l'utilisateur aime la sauce
+
     if (req.body.like === 1) {
         // On ajoute 1 like et on l'envoie dans le tableau "usersLiked"
         Sauce.updateOne({ _id: req.params.id }, { $inc: { likes: req.body.like++ }, $push: { usersLiked: req.body.userId } })
