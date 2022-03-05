@@ -8,6 +8,8 @@ const User = require('./models/user');
 // Création d'une application express
 const app = express();
 
+const path = require('path');
+
 
 // enregistrons notre routeur dans notre application. Pour ce faire, importez le routeur 
 const userRoutes = require('./Routes/user');
@@ -57,6 +59,7 @@ app.use('/api/sauces', Sauce)
 app.use('/api/auth', userRoutes);
 
 
+app.use('/images', express.static(path.join(__dirname, 'images')));
 
 module.exports = mongoose;
 // Export de l'application express pour déclaration dans server.js

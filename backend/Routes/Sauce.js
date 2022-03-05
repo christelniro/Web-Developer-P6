@@ -5,6 +5,8 @@ const router = express.Router();
 
 const auth = require('../middleware/auth');
 const saucesCtrl = require('../controllers/user')
+const multer = require('../middleware/multer-config');
+
 
 //Create and modify sauces
 router.get('/', auth, saucesCtrl.getAllSauces);
