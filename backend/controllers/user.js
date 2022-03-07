@@ -34,14 +34,14 @@ exports.login = (req, res, next) => {
             console.log(" user ", user);
             if (!user) {
                 //s'ils ne correspondent pas, nous renvoyons une erreur 
-                return res.status(401).json({ error: 'utilisateur non trouvé' });
+                return res.status(401).json({ message: 'utilisateur non trouvé' });
             }
             //comparer le mot de passe entré par l'utilisateur avec le hash enregistré dans la base de données
             bcrypt.compare(req.body.password, user.password)
                 .then(valid => {
                     console.log(" valid ", valid);
                     if (!valid) {
-                        return res.status(500).json({ error: 'mot de passe incorrect!!' })
+                        return res.status(500).json({ message: 'mot de passe incorrect!!' })
                     }
                     //les informations d'identification de notre utilisateur sont valides
                     res.status(200).json({
