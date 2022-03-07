@@ -5,7 +5,6 @@ const User = require('../models/user');
 const jwt = require('jsonwebtoken');
 
 
-
 exports.signup = (req, res, next) => {
     //haché le motde passe
     bcrypt.hash(req.body.password, 10)
@@ -18,7 +17,7 @@ exports.signup = (req, res, next) => {
             });
             user.save()
                 .then(() => res.status(201).json({ message: 'utilisateur créé' }))
-                .catch(error => res.status(400).json({ error }));
+                .catch(error => res.status(400).json({ message: 'utilisateur déja créé' }));
         })
         .catch(error => {
             console.log(error)
