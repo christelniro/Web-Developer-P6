@@ -1,4 +1,6 @@
 const Sauce = require('../models/sauce');
+const fs = require('fs');
+
 
 // Lecture de toutes les sauces dans la base de données (Get)
 exports.getAllSauces = (req, res, next) => {
