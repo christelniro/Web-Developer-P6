@@ -21,12 +21,12 @@ exports.getOneSauce = (req, res, next) => {
 
 exports.modifySauce = (req, res, next) => {
     const sauceObject = req.file ?
-        // Si il existe déjà une image
+        // S'il existe déjà une image
         {
             ...JSON.parse(req.body.sauce),
             imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
         } : { ...req.body };
-    // Si il n'existe pas d'image
+    // S'il n'existe pas d'image
     Sauce.updateOne({ _id: req.params.id }, { ...sauceObject, _id: req.params.id })
         .then(() => res.status(200).json({ message: 'Objet modifié !' }))
         .catch(error => res.status(400).json({ error }));
@@ -39,7 +39,6 @@ exports.createSauce = (req, res, next) => {
     // Création d'un nouvel objet Sauce
     const sauce = new Sauce({
         ...sauceObject,
-        // Création de l'URL de l'image : http://localhost:3000/image/nomdufichier 
         imageUrl: `${req.protocol}://${req.get('host')}/images/${req.file.filename}`
     });
     // Enregistrement de l'objet sauce dans la base de données

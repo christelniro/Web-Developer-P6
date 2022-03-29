@@ -14,7 +14,7 @@ const sauceSchema = mongoose.Schema({
     dislikes: { type: Number, default: 0 },
     usersLiked: [{ type: String }],
     usersDisliked: [{ type: String }],
-})
+});
 
 
 // exporter le model terminé
