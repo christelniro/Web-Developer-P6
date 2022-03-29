@@ -12,6 +12,7 @@
   "license": "ISC",
   "dependencies": {
     "concurrently": "^7.0.0",
+    "fs": "^0.0.1-security",
     "http-server": "^14.1.0",
     "live-server": "^1.1.0",
     "run-script-os": "^1.0.7",
